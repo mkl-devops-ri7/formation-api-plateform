@@ -15,7 +15,7 @@ if [ ! -f composer.json ]; then
     symfony new --webapp tmp
     
     cd tmp
-    rm -rf docker-compose*
+    rm -rf docker-compose* .git
     symfony composer require "php:>=$PHP_VERSION"
     symfony composer config --json extra.symfony.docker 'true'
     cp -Rp . ..
@@ -27,6 +27,8 @@ fi
 if [ ! -d vendor ]; then
     symfony composer install
 fi
+
+touch .env.local
 
 chmod -R 777 ./
 
