@@ -32,6 +32,6 @@ touch .env.local
 
 chmod -R 777 ./
 
-symfony d:m:m -n
+symfony console d:m:m -n
 
 exec docker-php-entrypoint "$@"
