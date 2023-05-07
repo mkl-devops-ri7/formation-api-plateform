@@ -11,9 +11,9 @@ if [ ! -f composer.json ]; then
 
     git config --global user.email "you@example.com"
     git config --global user.name "Your Name"
-    
+
     symfony new --webapp tmp
-    
+
     cd tmp
     rm -rf docker-compose* .git
     symfony composer require "php:>=$PHP_VERSION"
@@ -31,5 +31,7 @@ fi
 touch .env.local
 
 chmod -R 777 ./
+
+symfony d:m:m -n
 
 exec docker-php-entrypoint "$@"
