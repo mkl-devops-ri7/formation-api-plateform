@@ -28,7 +28,7 @@ if [ ! -d vendor ]; then
     symfony composer install
 fi
 
-touch .env.local
+test -f .env.local && touch .env.local
 
 chmod -R 777 ./
 
